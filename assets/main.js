@@ -1,3 +1,25 @@
+const ambientAudio = new Audio('assets/ambient.mp3');
+
+ambientAudio.play();
+
+const els = document.querySelectorAll("*");
+els.forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+        ambientAudio.play();
+    })
+    ambientAudio.addEventListener('ended', () => {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+})
+
+const enterGame = document.getElementById('enter-game');
+enterGame.addEventListener('click', (e) => {
+    e.preventDefault();
+    location.href = "game";
+})
+
+
 
 // more documentation available at
 // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
